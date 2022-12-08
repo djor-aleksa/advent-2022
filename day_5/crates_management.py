@@ -1,8 +1,7 @@
 CRATES_INSTRUCTIONS_FILE = "crates.txt"
-from functools import reduce
 
 
-def apply_crates_instructions_9000():
+def apply_crates_instructions_9000() -> None:
     with open(CRATES_INSTRUCTIONS_FILE) as file:
         file_content = file.read()
         crates_initial_state = file_content.split('\n\n')[0]
@@ -15,7 +14,7 @@ def apply_crates_instructions_9000():
                 move_one_crate(state_matrix, int(instruction.split()[3]), int(instruction.split()[5]))
 
 
-def apply_crates_instructions_9001():
+def apply_crates_instructions_9001() -> None:
     with open(CRATES_INSTRUCTIONS_FILE) as file:
         file_content = file.read()
         crates_initial_state = file_content.split('\n\n')[0]
@@ -40,7 +39,7 @@ def apply_crates_instructions_9001():
                 move_one_crate(state_matrix, temporary_stack, destination_stack)
 
 
-def create_state_matrix(crates_initial_state: str):
+def create_state_matrix(crates_initial_state: str) -> list:
     crates_initial_state_list = crates_initial_state.split('\n')
     stack_number = len((crates_initial_state_list[-1]).split())
     state_matrix = [[] for i in range(stack_number - 1)]
